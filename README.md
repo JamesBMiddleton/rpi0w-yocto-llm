@@ -2,6 +2,8 @@
 
 A yocto build for running the SmolLM2-135M language model locally on a Raspberry Pi 0 W with the llama.cpp LLM inference engine.
 
+<img width="948" height="641" alt="Screenshot_20260719_184710" src="https://github.com/user-attachments/assets/cce9f172-b637-4568-a204-e4da1b875adc" />
+
 ## Build the image
 ```bash
 git clone git@github.com:JamesBMiddleton/rpi0w-yocto-llm.git
