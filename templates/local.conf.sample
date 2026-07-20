@@ -1,0 +1,18 @@
+CONF_VERSION = "2"
+
+MACHINE = "raspberrypi0-wifi"
+
+INIT_MANAGER = "systemd"
+
+LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
+
+RPI_USE_U_BOOT = "1"
+
+# use USB in OTG 'gadget' mode
+RPI_EXTRA_CONFIG = "dtoverlay=dwc2,dr_mode=peripheral"
+
+# enable OTG serial console
+SERIAL_CONSOLES = "115200;ttyAMA0 115200;ttyGS0"
+
+CMDLINE_RNDIS = "modules-load=dwc2,g_serial"
+
