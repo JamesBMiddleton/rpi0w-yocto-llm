@@ -19,5 +19,11 @@ bitbake core-image-base
 ## Flash the image to an SD card
 ```
 export DEVICE="/dev/mmcblk0"
-bzcat tmp/deploy/images/raspberrypi0-wifi/core-image-base-raspberrypi0-wifi.rootfs.wic.bz2 | sudo dd of=$DEVICE bs=4m conv=fsync status=progress && sync
+bzcat tmp/deploy/images/raspberrypi0-wifi/core-image-base-raspberrypi0-wifi.rootfs.wic.bz2 | sudo dd of=$DEVICE bs=4m conv=fsync status=progress && sudo parted $DEVICE resizepart 2 10G && sudo resize2fs ${DEVICE}p2 && sync
 ```
+
+## Connect via OTG USB
+
+Connect your machine to the Raspberry Pi with an OTG USB cable and run `sudo screen /dev/ttyACM0`
+
+_Note:_ the config in `templates/templates/default/local.conf.sample` sets the Data Micro-USB port to 'peripheral' mode in order to run a TTY over USB. Remove RPI_EXTRA_CONFIG, SERIAL_CONSOLES and CMDLINE_RNDIS from `poky/build/conf/local.conf` to rebuild with default USB host behaviour.

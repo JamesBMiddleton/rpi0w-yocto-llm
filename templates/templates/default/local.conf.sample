@@ -1,3 +1,7 @@
+DISTRO = "poky"
+
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+
 CONF_VERSION = "2"
 
 MACHINE = "raspberrypi0-wifi"
